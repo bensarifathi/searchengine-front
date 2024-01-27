@@ -1,31 +1,75 @@
 <div class="books">
   <div class="title">
-    {{ language + ' books' }}
+    Gutenberg library
   </div>
-  <div class="books-cards">
-    <a
-      *ngFor="let book of books$ | async"
-      target="_blank"
-      rel="noopener noreferrer"
-      [routerLink]="'https://www.gutenberg.org/ebooks/' + book.link"
-      class="book"
-    >
-      <div class="book-content">
-        <div>
-          <div class="book-title">
-            {{ book.Title }}
+  <br>
+  <app-search-form (onSearch)="handleFormData($event)"></app-search-form>
+  <div *ngIf="recommendBooks$ | async as recommendBooks">
+    <ng-container *ngIf="recommendBooks.length > 0">
+      <h3>Recommendation:</h3>
+      <div class="books-cards">
+        <a
+          *ngFor="let book of recommendBooks$ | async"
+          rel="noopener noreferrer"
+          [routerLink]="book.id"
+          class="book"
+        >
+          <div class="book-content">
+            <div>
+              <div class="book-title">
+                {{ book.title }}
+              </div>
+              <div class="book-author">
+                {{ book.author }}
+              </div>
+            </div>
+            <div class="book-cover">
+              <img
+                src="https://www.gutenberg.org/cache/epub/{{book.id}}/pg{{book.id}}.cover.medium.jpg"
+                alt=""
+              />
+            </div>
           </div>
-          <div class="book-author">
-            {{ book.Author }}
-          </div>
-        </div>
-        <div class="book-cover">
-          <img
-            src="https://www.gutenberg.org/cache/epub/{{book.link}}/pg{{book.link}}.cover.medium.jpg"
-            alt=""
-          />
-        </div>
+        </a>
       </div>
-    </a>
+    </ng-container>
+    
+   
   </div>
+  <h3>Books list:</h3>
+  <div *ngIf="isReady$ | async as isReady; else content">
+    <div class="books-cards">
+      <a
+        *ngFor="let book of books$ | async"
+        rel="noopener noreferrer"
+        [routerLink]="book.id"
+        class="book"
+      >
+        <div class="book-content">
+          <div>
+            <div class="book-title">
+              {{ book.title }}
+            </div>
+            <div class="book-author">
+              {{ book.author }}
+            </div>
+          </div>
+          <div class="book-cover">
+            <img
+              src="https://www.gutenberg.org/cache/epub/{{book.id}}/pg{{book.id}}.cover.medium.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <ng-template #content>
+    <div class="text-center">
+      <div class="spinner-border" style="width: 3rem; height: 3rem" role="status">
+        <span class="sr-only"></span>
+      </div>
+    </div>
+  </ng-template>
+  
 </div>

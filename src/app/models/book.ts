@@ -1,6 +1,6 @@
 export interface Book {
-  Language: string,
-  Title: string,
-  Author: string,
-  link: string
+  category: string,
+  author: string,
+  id: string,
+  title: string
 }

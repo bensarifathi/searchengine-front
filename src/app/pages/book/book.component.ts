@@ -3,8 +3,9 @@ import {Observable} from "rxjs";
 import {Book} from "../../models/book";
 import {Store} from "@ngxs/store";
 import {BookState} from "../../state/book.state";
-import {GetBookAction} from "../../actions/book.action";
+import {GetRandomBookAction, SearchBoookAction} from "../../actions/book.action";
 import {ActivatedRoute} from "@angular/router";
+import { SearchForm } from 'src/app/models/search-form';
 
 @Component({
   selector: 'app-book',
@@ -13,11 +14,14 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class BookComponent implements OnInit {
 
-  books$: Observable<Book[]>
-  language: string
+  books$: Observable<Book[]>;
+  recommendBooks$: Observable<Book[]>;
+  isReady$: Observable<boolean>;
+
   constructor(private store: Store, private route: ActivatedRoute) {
     this.books$ = this.store.select(BookState.books);
-    this.language = this.route.snapshot.params["language"];
+    this.isReady$ = this.store.select(BookState.isReady);
+    this.recommendBooks$ = this.store.select(BookState.recommendedBooks);
   }
 
   ngOnInit(): void {
@@ -25,6 +29,10 @@ export class BookComponent implements OnInit {
   }
 
   getBooks() {
-    this.store.dispatch(new GetBookAction(this.language));
+    this.store.dispatch(new GetRandomBookAction());
+  }
+
+  handleFormData(searchData: SearchForm) {
+    this.store.dispatch(new SearchBoookAction(searchData));
   }
 }

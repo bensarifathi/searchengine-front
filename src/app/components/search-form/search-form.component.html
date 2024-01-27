@@ -1,0 +1,28 @@
+<div class="mx-3 mb-4">
+  <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+    <div class="row">
+      <div class="col-5">
+        <input type="text" name="searchInput" class="form-control" placeholder="Search for a book .." [(ngModel)]="formData.searchInput">
+      </div>
+      <div class="col-2">
+        <select name="categorySelect" class="form-select" [(ngModel)]="formData.selectedCategory">
+          <option value='0'>KMP</option>
+          <option value="1">Regex</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+      <div class="col-3">
+        <select name="centrality" class="form-select" [(ngModel)]="formData.centrality">
+          <option value="DEGREE_CENTRALITY">DEGREE_CENTRALITY</option>
+          <option value="BETWEENNESS_CENTRALITY">BETWEENNESS_CENTRALITY</option>
+          <option value="CLOSENESS_CENTRALITY">CLOSENESS_CENTRALITY</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+      <div class="col-2">
+        <button type="submit" class="btn btn-outline-primary mb-3">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
+
