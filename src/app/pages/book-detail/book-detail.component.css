@@ -3,4 +3,5 @@
     line-height: 1.5;
     word-wrap: break-word;
     white-space: pre-line; /* Preserve line breaks */
+    text-align: center;
   }

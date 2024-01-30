@@ -20,7 +20,9 @@
 }
 
 .book-cover {
-  grid-area: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .book-cover img {
   height: 10rem;
@@ -34,13 +36,14 @@
 
 .book-content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   width: 20rem;
   background: white;
   padding: 2rem;
   margin: 1rem;
   border-radius: 12px;
+  min-height: 350px;
 }
 
 .book {
@@ -52,4 +55,23 @@
   .books {
     padding: 0;
   }
+}
+
+/* // a badge with click number */
+.book-clicks{
+  display: flex;
+  gap: 20px;
+}
+
+.book-clicks span {
+  grid-area: clicks;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1;
+  font-weight: 700;
+  color: white;
+  background: #413d3b;
+  border-radius: 5px;
+  width: 30px;
 }

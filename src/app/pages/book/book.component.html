@@ -46,6 +46,12 @@
         class="book"
       >
         <div class="book-content">
+          <div class="book-cover">
+            <img
+              src="https://www.gutenberg.org/cache/epub/{{book.id}}/pg{{book.id}}.cover.medium.jpg"
+              alt=""
+            />
+          </div>
           <div>
             <div class="book-title">
               {{ book.title }}
@@ -54,12 +60,13 @@
               {{ book.author }}
             </div>
           </div>
-          <div class="book-cover">
-            <img
-              src="https://www.gutenberg.org/cache/epub/{{book.id}}/pg{{book.id}}.cover.medium.jpg"
-              alt=""
-            />
+          <div class="book-clicks">
+            Clicks:
+            <span>
+            {{ book.clicks }}
+            </span>
           </div>
+          
         </div>
       </a>
     </div>
