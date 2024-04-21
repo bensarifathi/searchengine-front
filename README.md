@@ -1,27 +1,35 @@
-# Tme1Front
+# Search Engine Frontend with Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
+## Overview
+This repository contains the frontend part of a Search Engine project implemented using Angular. The frontend is responsible for providing a user-friendly interface for interacting with the search engine and displaying search results.
 
-## Development server
+## Features
+- **User Interface:** Utilizes Angular framework to create a dynamic and responsive user interface.
+- **Search Input:** Provides an input field where users can enter search queries.
+- **Search Results:** Displays search results in a visually appealing format.
+- **Filters:** Allows users to filter search results based on various criteria.
+- **Integration:** Integrates with the backend Search Engine API to fetch search results.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Usage
+1. Clone the repository to your local machine.
+2. Install the required dependencies using `npm install`.
+3. Configure the backend API endpoint in the project settings.
+4. Run the Angular development server using `ng serve`.
+5. Access the frontend application in your web browser at the specified URL.
 
-## Code scaffolding
+## Technologies Used
+- Angular
+- TypeScript
+- HTML/CSS
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Contributing
+Contributions are welcome! If you have any suggestions, bug fixes, or want to add new features, feel free to submit a pull request.
 
-## Build
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Acknowledgements
+Special thanks to the Angular community for providing an excellent framework for building dynamic web applications.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Disclaimer
+Please note that this project is for demonstration and educational purposes only. It may not be suitable for production use without proper modifications and security considerations.
